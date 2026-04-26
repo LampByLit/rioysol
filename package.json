@@ -1,0 +1,17 @@
+{
+  "name": "rioysol",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rio y Sol — river conservation, Iquitos, Peru",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
