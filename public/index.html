@@ -38,22 +38,23 @@
         <section aria-label="Photo mosaic">
           <div class="content">
             <div class="grid">
-              <!-- rioysol-l1-01…06 = outer ring; l2-01…06 = inner; l3-01…02 = center column; rioysol-hero = center scaler -->
               <div class="layer">
-                <div>
+                <div class="tile--labeled">
                   <img
-                    src="/images/rioysol-l1-01.jpg"
-                    alt="Rio y Sol, river and land near Iquitos, Peru"
+                    src="/images/rioysol-l1-01XX.jpg"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
                     decoding="async"
+                    aria-labelledby="mosaic-cap-first"
                   />
+                  <span class="tile-label" id="mosaic-cap-first">River &amp; forest, Iquitos</span>
                 </div>
                 <div>
                   <img
                     src="/images/rioysol-l1-02.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -63,7 +64,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l1-03.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -73,7 +74,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l1-04.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -83,22 +84,24 @@
                 <div>
                   <img
                     src="/images/rioysol-l1-05.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
                     decoding="async"
                   />
                 </div>
-                <div>
+                <div class="tile--labeled">
                   <img
-                    src="/images/rioysol-l1-06.jpg"
-                    alt="Rio y Sol project photograph"
+                    src="/images/rioysol-l1-06XX.jpg"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
                     decoding="async"
+                    aria-labelledby="mosaic-cap-last"
                   />
+                  <span class="tile-label" id="mosaic-cap-last">Sanctuary &amp; habitat</span>
                 </div>
               </div>
 
@@ -106,7 +109,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-01.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -116,7 +119,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-02.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -126,7 +129,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-03.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -136,7 +139,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-04.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -146,7 +149,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-05.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -156,7 +159,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l2-06.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -169,7 +172,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l3-01.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -179,7 +182,7 @@
                 <div>
                   <img
                     src="/images/rioysol-l3-02.jpg"
-                    alt="Rio y Sol project photograph"
+                    alt=""
                     width="800"
                     height="1000"
                     loading="lazy"
@@ -188,10 +191,10 @@
                 </div>
               </div>
 
-              <div class="scaler">
+              <div class="scaler" aria-label="Rio y Sol — opening photograph">
                 <img
-                  src="/images/rioysol-hero.jpg"
-                  alt="Rio y Sol — place at the heart of the project"
+                  src="/images/rioysol-l1-06XX.jpg"
+                  alt=""
                   width="1200"
                   height="1500"
                   fetchpriority="high"
@@ -208,10 +211,6 @@
             This site is a home for a growing archive of the river: <strong>reforestation</strong>, protection of
             <strong>birds and other wildlife</strong>, and the daily work of keeping habitat intact in the face of hunting,
             pressure, and pollution — including <strong>plastic</strong> pulled from the water.
-          </p>
-          <p>
-            More photos are stored in <code>public/images</code> as <code>rioysol-extra-###</code> for future pages or gallery
-            use; the scroll mosaic above uses <code>rioysol-l*-*</code> and <code>rioysol-hero</code>.
           </p>
           <div class="story-cta">
             <a class="btn" href="mailto:hello@rioysol.example">Contact the team</a>
