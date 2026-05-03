@@ -42,7 +42,11 @@ app.use(
   express.static(publicDir, {
     maxAge: process.env.NODE_ENV === "production" ? "1h" : 0,
     setHeaders(res, filePath) {
-      if (filePath.endsWith("index.html")) {
+      if (
+        filePath.endsWith("index.html") ||
+        filePath.endsWith("about.html") ||
+        filePath.endsWith("site.webmanifest")
+      ) {
         res.setHeader("Cache-Control", "no-cache");
       }
     },

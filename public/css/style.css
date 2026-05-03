@@ -39,30 +39,29 @@ body {
 }
 
 .slider__menu {
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: none;
   cursor: none;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
   transition: border-color 0.3s ease;
   text-decoration: none;
-  color: inherit;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .slider__menu:hover {
   border-color: rgba(255, 255, 255, 0.8);
 }
 
-.slider__menu span {
-  width: 18px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.8);
+.slider__menu-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: block;
 }
 
 .slider__label {
@@ -202,6 +201,16 @@ body {
     padding: 40px 56px;
   }
 
+  .slider__menu {
+    width: 92px;
+    height: 92px;
+  }
+
+  .slider__menu-icon {
+    width: 42px;
+    height: 42px;
+  }
+
   .slider__label {
     display: flex;
   }
@@ -269,4 +278,175 @@ body {
   .slider__title span {
     will-change: auto;
   }
+}
+
+/* --- About page (long-form strategy) --- */
+html.about-root,
+html.about-root body {
+  height: auto;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.about {
+  font-weight: 400;
+  background: #0c1222;
+  color: rgba(255, 255, 255, 0.92);
+  -webkit-font-smoothing: antialiased;
+}
+
+.about__skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 12px 16px;
+  background: #38bdf8;
+  color: #0c1222;
+  font-weight: 600;
+  z-index: 100;
+}
+
+.about__skip:focus {
+  left: 16px;
+  top: 16px;
+}
+
+.about__header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px clamp(20px, 4vw, 48px);
+  background: rgba(12, 18, 34, 0.92);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.about__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.about__back:hover {
+  border-color: rgba(56, 189, 248, 0.9);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.about__back-icon {
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.about__header-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(56, 189, 248, 0.85);
+}
+
+.about__main {
+  padding: clamp(32px, 5vw, 64px) clamp(20px, 5vw, 72px) 80px;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.about__article {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.about__kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(56, 189, 248, 0.9);
+  margin-bottom: 16px;
+}
+
+.about__title {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.about__lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about__section {
+  margin-bottom: 36px;
+}
+
+.about__h2 {
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #e2e8f0;
+  letter-spacing: -0.01em;
+}
+
+.about__section p {
+  margin-bottom: 14px;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.about__section p:last-child {
+  margin-bottom: 0;
+}
+
+.about__section strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.about__section em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.about__footer {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+}
+
+.about__footer p {
+  margin-bottom: 12px;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.about__link {
+  color: #38bdf8;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.about__link:hover {
+  color: #7dd3fc;
 }
