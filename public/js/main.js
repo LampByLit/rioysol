@@ -1,7 +1,7 @@
 /**
  * GSAP full-viewport slider — from https://codepen.io/Nidal95/pen/qENQPBp (Nidal95).
- * Add photos in order in SLIDES. Headlines cycle SLIDE_WORDS (repeats if more photos than words).
- * Background: each transition picks a random color from BRIGHT_BG_COLORS. Optional per slide: `alt` only.
+ * Slides load from GET /api/slide-images.json (all images in public/images). Falls back if the API is missing.
+ * Headlines cycle SLIDE_WORDS. Background: random from BRIGHT_BG_COLORS. Optional per slide: `alt` only.
  */
 
 const throttle = (callback, limit) => {
@@ -67,7 +67,7 @@ function randomBrightBackground(exclude) {
   return pick;
 }
 
-const SLIDES = [
+const FALLBACK_SLIDES = [
   { image: "/images/rioysol-l1-06XX.jpg" },
   { image: "/images/rioysol-l1-01XX.jpg" },
   { image: "/images/rioysol-l1-02.jpg" },
@@ -82,6 +82,8 @@ const SLIDES = [
   { image: "/images/rioysol-l2-06.jpg" },
   { image: "/images/rioysol-l3-01.jpg" },
 ];
+
+let SLIDES = FALLBACK_SLIDES.slice();
 
 const AUTOPLAY_DELAY = 4000;
 
@@ -534,6 +536,17 @@ class Slider {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("/api/slide-images.json", { cache: "no-store" });
+    if (res.ok) {
+      const paths = await res.json();
+      if (Array.isArray(paths) && paths.length > 0) {
+        SLIDES = paths.map((image) => ({ image }));
+      }
+    }
+  } catch (_) {
+    /* use FALLBACK_SLIDES */
+  }
   new Slider();
 });
