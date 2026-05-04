@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Rio y Sol</title>
     <meta
       name="description"
@@ -25,9 +25,13 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <section class="slider" aria-label="Featured scenes from the project">
+    <section
+      class="slider"
+      data-i18n-aria="sliderSectionAria"
+      aria-label="Featured scenes from the project"
+    >
       <div class="slider__header">
-        <a class="slider__menu" href="/about.html" aria-label="About our conservation strategy">
+        <a class="slider__menu" href="/about.html" data-i18n-aria="menuAboutAria">
           <svg
             class="slider__menu-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,14 +48,25 @@
             <path d="M2 12h20" />
           </svg>
         </a>
-        <span class="slider__label">Rio y Sol, Iquitos, Peru</span>
+        <div class="slider__header-right">
+          <span class="slider__label" data-i18n="brandLocation">Rio y Sol, Iquitos, Peru</span>
+          <div
+            class="lang-toggle lang-toggle--slider"
+            role="group"
+            data-i18n-aria="langSwitcherAria"
+            aria-label="Language"
+          >
+            <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
+            <button type="button" class="lang-toggle__btn" data-lang="es">ES</button>
+          </div>
+        </div>
       </div>
 
       <div class="slider__body">
         <div class="slider__left">
           <h1 class="slider__title" aria-live="polite"></h1>
           <div class="slider__footer">
-            <p class="slider__description">
+            <p class="slider__description" data-i18n-html="homeTaglineHtml">
               River conservation on a living <br />
               stretch of the&nbsp;Amazon.
             </p>
@@ -64,6 +79,7 @@
     </section>
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="/js/i18n.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>

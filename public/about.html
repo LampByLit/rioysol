@@ -2,7 +2,7 @@
 <html lang="en" class="about-root">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>How we work · Rio y Sol</title>
     <meta
       name="description"
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="about">
-    <a class="about__skip" href="#about-main">Skip to main content</a>
+    <a class="about__skip" href="#about-main" data-i18n="aboutSkip">Skip to main content</a>
 
     <!-- Parallax panel (gist #world3d / #tablet) -->
     <div class="about__world3d" aria-hidden="true">
@@ -81,35 +81,44 @@
       </div>
 
       <header class="about__header">
-        <a class="about__back" href="/" aria-label="Back to Rio y Sol home">
+        <a class="about__back" href="/" data-i18n-aria="aboutBackAria" aria-label="Back to Rio y Sol home">
           <span class="about__back-icon" aria-hidden="true">←</span>
-          <span>Rio y Sol</span>
+          <span data-i18n="aboutBrandShort">Rio y Sol</span>
         </a>
-        <span class="about__header-tag">Iquitos corridor · Amazonas · Loreto</span>
+        <div class="about__header-right">
+          <span class="about__header-tag" data-i18n="aboutHeaderTag">Iquitos corridor · Amazonas · Loreto</span>
+          <div
+            class="lang-toggle lang-toggle--about"
+            role="group"
+            data-i18n-aria="langSwitcherAria"
+            aria-label="Language"
+          >
+            <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
+            <button type="button" class="lang-toggle__btn" data-lang="es">ES</button>
+          </div>
+        </div>
       </header>
 
       <main id="about-main" class="about__main">
       <article class="about__article">
-        <p class="about__kicker">Riparian stewardship · non-extractive landscape work</p>
-        <h1 class="about__title">
-          How we protect this stretch of river
-        </h1>
-        <p class="about__lede">
+        <p class="about__kicker" data-i18n="about_kicker">Riparian stewardship · non-extractive landscape work</p>
+        <h1 class="about__title" data-i18n="about_title">How we protect this stretch of river</h1>
+        <p class="about__lede" data-i18n="about_lede">
           Rio y Sol works on a priority reach of the Amazon in Iquitos, Peru: water, forest, wildlife, and the
           people who live with all three. The program is built for the long term: local leadership, steady learning,
           and field measurements that track real change on the ground.
         </p>
 
         <section class="about__section" aria-labelledby="about-s1">
-          <h2 id="about-s1" class="about__h2">1. Problem framing &amp; landscape diagnostics</h2>
-          <p>
+          <h2 id="about-s1" class="about__h2" data-i18n="about_s1_h2">1. Problem framing &amp; landscape diagnostics</h2>
+          <p data-i18n-html="about_s1_p1_html">
             Upstream pressures, weak enforcement, informal clearing, trash in the water, and a hotter, less
             predictable climate all hit this corridor at once. Single-lever projects (a park alone, a village plan
             alone, cleanups alone) usually stall once the rest of the system pushes back. We use a
             <strong>ridge-to-reef analog</strong> for freshwater: <strong>catchment-aware</strong>, corridor-wide,
             explicit about tenure and politics, and framed around the river as a full socio-ecological corridor.
           </p>
-          <p>
+          <p data-i18n-html="about_s1_p2_html">
             <strong>Landscape diagnostics</strong> combine mapping, threat triage, seasonal hydrology, and field
             checks. We prioritize places where <strong>keystone habitat patches</strong>, flagship species, and
             community needs overlap, and we tie every spatial layer to what people observe and report on the ground.
@@ -117,13 +126,13 @@
         </section>
 
         <section class="about__section" aria-labelledby="about-s2">
-          <h2 id="about-s2" class="about__h2">2. Theory of change &amp; programmatic pillars</h2>
-          <p>
+          <h2 id="about-s2" class="about__h2" data-i18n="about_s2_h2">2. Theory of change &amp; programmatic pillars</h2>
+          <p data-i18n-html="about_s2_p1_html">
             Our <strong>theory of change</strong> is straightforward: lasting gains need <em>stewardship capacity</em>,
             <em>incentive alignment</em>, and <em>accountable monitoring</em> moving together. Patrols and planting
             need policy and finance that reward good outcomes; monitoring needs a path from data to action.
           </p>
-          <p>
+          <p data-i18n-html="about_s2_p2_html">
             <strong>Community co-governance pathways</strong> (clear forums, clear roles, rights-holders and
             stakeholders named) sit next to <strong>nature-based solutions (NbS)</strong> chosen for shade, banks,
             filtration, and carbon on functional grounds. A practical <strong>MEAL</strong> stack
@@ -133,35 +142,35 @@
         </section>
 
         <section class="about__section" aria-labelledby="about-s3">
-          <h2 id="about-s3" class="about__h2">3. Biodiversity, flagship species, &amp; trophic signaling</h2>
-          <p>
+          <h2 id="about-s3" class="about__h2" data-i18n="about_s3_h2">3. Biodiversity, flagship species, &amp; trophic signaling</h2>
+          <p data-i18n-html="about_s3_p1_html">
             We track a <strong>surrogate species ladder</strong> (herons, otters, turtles, others) as
             <strong>trophic signaling</strong> for how the system is doing. Methods stay modest where they must
             (transects, structured observation). The goal is defensible trends over time and clear links to habitat
             condition.
           </p>
-          <p>
+          <p data-i18n-html="about_s3_p2_html">
             Restoration targets <strong>structural heterogeneity</strong> and native mixes aligned with
             <strong>flood-pulse</strong> dynamics and diverse, resilient planting palettes.
           </p>
         </section>
 
         <section class="about__section" aria-labelledby="about-s4">
-          <h2 id="about-s4" class="about__h2">4. Pollution abatement &amp; materials stewardship</h2>
-          <p>
+          <h2 id="about-s4" class="about__h2" data-i18n="about_s4_h2">4. Pollution abatement &amp; materials stewardship</h2>
+          <p data-i18n-html="about_s4_p1_html">
             Plastic here is a <strong>waste-systems problem with a watershed footprint</strong>: schools and river
             users, low-tech capture where crews can sustain it, and dialogue with vendors and haulers at chokepoints.
             Rules on dumping and harmful burning stay clear; outreach respects people’s time and dignity.
           </p>
-          <p>
+          <p data-i18n-html="about_s4_p2_html">
             <strong>Circular-economy pilots</strong> start when supply, labor, and buyers already align. Pilot design
             stays cautious because under-resourced recycling projects erode trust quickly.
           </p>
         </section>
 
         <section class="about__section" aria-labelledby="about-s5">
-          <h2 id="about-s5" class="about__h2">5. Climate resilience, hydrosocial risk, &amp; equitable adaptation</h2>
-          <p>
+          <h2 id="about-s5" class="about__h2" data-i18n="about_s5_h2">5. Climate resilience, hydrosocial risk, &amp; equitable adaptation</h2>
+          <p data-i18n-html="about_s5_p1_html">
             Climate information supports planning together with local judgment. We lead with <strong>no-regrets
             measures</strong>: shade and banks that buffer heat and surge, livelihood options aligned with keeping forest
             on the landscape. Programs budget for operation and maintenance before scale-up.
@@ -169,12 +178,12 @@
         </section>
 
         <section class="about__section" aria-labelledby="about-s6">
-          <h2 id="about-s6" class="about__h2">6. Institutional positioning, partnerships, &amp; finance readiness</h2>
-          <p>
+          <h2 id="about-s6" class="about__h2" data-i18n="about_s6_h2">6. Institutional positioning, partnerships, &amp; finance readiness</h2>
+          <p data-i18n-html="about_s6_p1_html">
             Partners include government, NGOs, universities, and sometimes business when values and deliverables line
             up. <strong>Due diligence firebreaks</strong> screen relationships that would cost community trust.
           </p>
-          <p>
+          <p data-i18n-html="about_s6_p2_html">
             <strong>Blended capital</strong> matches instrument to reality: grants for public-good layers, patient
             capital where revenue is plausible, catalytic funds to de-risk community enterprises. Any carbon-related
             work would use methods and benefit-sharing that hold up to scrutiny.
@@ -182,8 +191,8 @@
         </section>
 
         <section class="about__section" aria-labelledby="about-s7">
-          <h2 id="about-s7" class="about__h2">7. Safeguarding, inclusion, &amp; grievance sensitivity</h2>
-          <p>
+          <h2 id="about-s7" class="about__h2" data-i18n="about_s7_h2">7. Safeguarding, inclusion, &amp; grievance sensitivity</h2>
+          <p data-i18n-html="about_s7_p1_html">
             Safeguarding is daily practice: referrals people can use, procurement that screens known bad actors, and
             training schedules that fit caregivers and literacy levels. <strong>Grievance responsiveness</strong> is
             active and visible; timely, transparent handling of concerns protects the program’s legitimacy.
@@ -191,14 +200,14 @@
         </section>
 
         <section class="about__section" aria-labelledby="about-s8">
-          <h2 id="about-s8" class="about__h2">8. Roadmap, KPIs, &amp; adaptive management loops</h2>
-          <p>
+          <h2 id="about-s8" class="about__h2" data-i18n="about_s8_h2">8. Roadmap, KPIs, &amp; adaptive management loops</h2>
+          <p data-i18n-html="about_s8_p1_html">
             The roadmap phases in work: stabilize local stewardship, test connectivity where it matters, lock
             monitoring baselines, then expand, with explicit <strong>stop rules</strong> if indicators trend wrong.
             <strong>KPIs</strong> pair ecology with governance: attendance, budgets, dispute handling, and field
             outcomes read together.
           </p>
-          <p>
+          <p data-i18n-html="about_s8_p2_html">
             Quarterly <strong>learning retrospectives</strong> and annual plan reviews track shifts in climate,
             tenure, or health. Funds emphasize maintenance, candid reporting, and long-horizon trends tied to the
             river.
@@ -207,11 +216,10 @@
 
         <footer class="about__footer">
           <p>
-            <strong>Contact.</strong>
-            For partnerships, research collaboration, or media inquiries:
-            <a class="about__link" href="mailto:hello@rioysol.example">hello@rioysol.example</a>
+            <span data-i18n-html="about_footer_contact_html"><strong>Contact.</strong>
+            For partnerships, research collaboration, or media inquiries:</span> <a class="about__link" href="mailto:hello@rioysol.example">hello@rioysol.example</a>
           </p>
-          <p><a class="about__link" href="/">← Return to the Rio y Sol experience</a></p>
+          <p><a class="about__link" href="/" data-i18n="about_footer_return_html">← Return to the Rio y Sol experience</a></p>
         </footer>
       </article>
       </main>
@@ -219,6 +227,7 @@
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="/js/i18n.js"></script>
     <script src="/js/about.js"></script>
   </body>
 </html>

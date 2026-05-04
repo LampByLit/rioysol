@@ -87,7 +87,7 @@ let SLIDES = FALLBACK_SLIDES.slice();
 
 const AUTOPLAY_DELAY = 4000;
 
-const SLIDE_WORDS = [
+const SLIDE_WORDS_EN = [
   "Conservation",
   "Reforestation",
   "Protection",
@@ -104,13 +104,41 @@ const SLIDE_WORDS = [
   "Resilience",
 ];
 
+const SLIDE_WORDS_ES = [
+  "Conservación",
+  "Reforestación",
+  "Protección",
+  "Restauración",
+  "Sostenibilidad",
+  "Renaturalización",
+  "Biodiversidad",
+  "Custodia",
+  "Santuario",
+  "Hábitat",
+  "Patrimonio",
+  "Cuenca",
+  "Comunidad",
+  "Resiliencia",
+];
+
+function currentSlideWords() {
+  if (typeof window !== "undefined" && window.RioYSolI18n && window.RioYSolI18n.getLang() === "es") {
+    return SLIDE_WORDS_ES;
+  }
+  return SLIDE_WORDS_EN;
+}
+
 function slideTitleWord(idx) {
-  return SLIDE_WORDS[idx % SLIDE_WORDS.length];
+  const list = currentSlideWords();
+  return list[idx % list.length];
 }
 
 function slideAlt(idx) {
   const a = SLIDES[idx].alt;
   if (a != null && a !== "") return a;
+  if (typeof window !== "undefined" && window.RioYSolI18n && window.RioYSolI18n.slideAlt) {
+    return window.RioYSolI18n.slideAlt(idx, SLIDES.length);
+  }
   return (
     "Photograph from the Rio y Sol river conservation project near Iquitos, Peru (" +
     (idx + 1) +
@@ -532,6 +560,37 @@ class Slider {
       } else {
         this.startAutoPlay();
       }
+    });
+
+    window.addEventListener("rioysol:langchange", () => {
+      this.refreshLanguage();
+    });
+  }
+
+  /**
+   * Update headline, carousel image alts, and ARIA after ES/EN switch (handled in i18n.js).
+   */
+  refreshLanguage() {
+    const idx = this.current;
+    if (!this.titleEl) return;
+    const w = slideTitleWord(idx);
+    this.syncTitleAria(idx);
+
+    if (typeof gsap === "undefined") {
+      this.titleEl.textContent = w;
+    } else {
+      gsap.killTweensOf(this.titleEl.querySelectorAll(".slider__title-line"));
+      this.titleEl.innerHTML = "";
+      this.titleEl.style.height = "";
+      this.setTitle(w);
+      this.scheduleFitTitle();
+    }
+
+    if (!this.slideEls || !this.slideEls.length) return;
+    this.slideEls.forEach(({ el, step }) => {
+      const i = this.mod(this.current + step);
+      const img = el.querySelector("img");
+      if (img) img.alt = slideAlt(i);
     });
   }
 }
