@@ -50,7 +50,14 @@ body {
   justify-content: center;
   transition: border-color 0.3s ease;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.88);
+  color: #fff;
+}
+
+.slider__menu:link,
+.slider__menu:visited,
+.slider__menu:hover,
+.slider__menu:active {
+  color: #fff;
 }
 
 .slider__menu:hover {
@@ -62,6 +69,8 @@ body {
   height: 36px;
   flex-shrink: 0;
   display: block;
+  color: #fff;
+  stroke: #fff;
 }
 
 .slider__label {
@@ -281,105 +290,153 @@ body {
 }
 
 /* --- About page (long-form strategy) --- */
-html.about-root,
-html.about-root body {
+/* One scroll root on <html>; dual overflow-y:auto on html+body breaks mouse wheel on some browsers */
+html.about-root {
   height: auto;
   min-height: 100dvh;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: auto;
+  overscroll-behavior: none;
+}
+
+html.about-root body {
+  min-height: 100dvh;
+  height: auto;
+  overflow: visible;
+  overscroll-behavior: none;
 }
 
 body.about {
+  --strokeDashoffset: 0;
+  --tabletVerticaloffset: 0px;
   font-weight: 400;
   background: #0c1222;
   color: rgba(255, 255, 255, 0.92);
   -webkit-font-smoothing: antialiased;
 }
 
-/* River scroll backdrop (GSAP + ScrollTrigger in /js/about.js) */
+/* Gist-aligned: #world3d + #tablet parallax field */
+.about__world3d {
+  position: fixed;
+  top: var(--tabletVerticaloffset);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  width: 90vw;
+  max-width: 1200px;
+  padding-top: 5vw;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  shape-rendering: crispEdges;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.about__tablet {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform: rotateY(20deg);
+  transform: rotateY(20deg);
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 150vh;
+  padding: 40px;
+  padding-left: 140px;
+  border-radius: 30px;
+  opacity: 0.25;
+  background: linear-gradient(109.61deg, #2d3d4f 4.26%, #12181f 84.84%);
+}
+
+.about__tablet::before {
+  position: absolute;
+  left: 120px;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  content: "";
+  display: block;
+  background-color: #0c1222;
+  border: thin solid rgba(86, 90, 100, 0.53);
+  border-radius: 20px;
+}
+
 .about__shell {
   position: relative;
+  z-index: 1;
   isolation: isolate;
 }
 
-.about__river-layer {
+.about__river-svg-wrap {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
-.about__river-bg {
+/* Gist #svgPaths */
+#aboutSvgPaths {
   position: absolute;
-  inset: -14% -8% -10% -8%;
-  background:
-    radial-gradient(ellipse 110% 70% at 90% 8%, rgba(56, 189, 248, 0.14), transparent 58%),
-    radial-gradient(ellipse 95% 55% at 94% 42%, rgba(45, 212, 191, 0.09), transparent 52%),
-    radial-gradient(ellipse 100% 45% at 86% 82%, rgba(14, 116, 144, 0.15), transparent 48%);
-  will-change: transform;
+  top: 75px;
+  left: 50%;
+  z-index: 5;
+  width: 740px;
+  max-width: 100%;
+  height: calc(100% - 75px);
+  overflow: visible;
+  filter: blur(1px);
+  transform: translateX(-50%);
 }
 
-.about__river-svg-outer {
-  position: absolute;
-  right: -6%;
-  top: 0;
-  width: min(62vw, 580px);
-  height: 100%;
-  --about-river-parallax-y: 0px;
-  transform: translate3d(0, var(--about-river-parallax-y), 0);
-  will-change: transform;
-}
-
-@media (min-width: 720px) {
-  .about__river-svg-outer {
-    right: 0;
-    transform: translate3d(3vw, var(--about-river-parallax-y), 0);
+@media (min-width: 576px) {
+  #aboutSvgPaths {
+    transform: translateX(calc(-50% + 6vw));
   }
 }
 
-.about__river-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  overflow: visible;
-  mix-blend-mode: screen;
-}
-
-.about__river-paths {
-  transform: translateZ(0);
-}
-
-.about__river-use {
+#aboutSvgPaths use {
   fill: none;
-  stroke: url(#aboutRiverStroke);
+  stroke: url(#cl1);
   stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-width: var(--dot);
+  stroke-dashoffset: var(--strokeDashoffset);
 }
 
-.about__river-use--1 {
-  stroke-width: 2.25;
-  opacity: 0.36;
+/* Gist patterns per path (same order as <use> in markup) */
+#aboutSvgPaths use:nth-of-type(1) {
+  --dot: 20px;
+  --gap: 50px;
+  stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 300px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
 }
 
-.about__river-use--2 {
-  stroke-width: 3.35;
-  opacity: 0.46;
+#aboutSvgPaths use:nth-of-type(2) {
+  --dot: 34px;
+  --gap: 60px;
+  stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 300px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
 }
 
-.about__river-use--3 {
-  stroke-width: 2.65;
-  opacity: 0.4;
+#aboutSvgPaths use:nth-of-type(3) {
+  --dot: 25px;
+  --gap: 40px;
+  stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 250px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
 }
 
-.about__river-use--4 {
-  stroke-width: 3.85;
-  opacity: 0.52;
+#aboutSvgPaths use:nth-of-type(4) {
+  --dot: 40px;
+  --gap: 70px;
+  stroke-dasharray: var(--dot) var(--gap) 100px var(--gap) var(--dot) var(--gap) 200px var(--gap) var(--dot) 20000px;
 }
 
-body.about--reduced-motion .about__river-use {
-  opacity: 0.34;
+@media (prefers-reduced-motion: reduce) {
+  body.about {
+    --strokeDashoffset: -2400;
+    --tabletVerticaloffset: -65vh;
+  }
 }
 
 .about__skip {

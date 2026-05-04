@@ -1,59 +1,52 @@
 /**
- * Scroll-scrubbed “river” SVG paths (inspired by GSAP ScrollTrigger stroke-dash patterns,
- * e.g. https://codepen.io/ikrprojects/pen/KwgGBRp). Respects prefers-reduced-motion.
+ * Gist-aligned scroll lines: body --strokeDashoffset + --tabletVerticaloffset
+ * https://gist.github.com/LampByLit/47392e5516ccc6b094aef2ee2ef29b66
+ * (CodePen https://codepen.io/ikrprojects/pen/KwgGBRp — no SplitText here.)
  */
 
 (function () {
-  var shell = document.querySelector(".about__shell");
-  var riverBg = document.querySelector(".about__river-bg");
-  var riverSvgOuter = document.querySelector(".about__river-svg-outer");
-  var uses = document.querySelectorAll(".about__river-use");
-  var pathIds = ["aboutRiverPath1", "aboutRiverPath2", "aboutRiverPath3", "aboutRiverPath4"];
-
-  if (!shell || !uses.length) return;
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) {
     document.body.classList.add("about--reduced-motion");
+    var h = window.innerHeight;
+    gsap.set("body", {
+      "--strokeDashoffset": -2400,
+      "--tabletVerticaloffset": -Math.floor(0.65 * h) + "px",
+    });
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
 
-  var lengths = pathIds.map(function (id) {
-    var p = document.getElementById(id);
-    return p ? p.getTotalLength() : 0;
-  });
-
-  uses.forEach(function (use, i) {
-    var len = lengths[i];
-    if (!len) return;
-    gsap.set(use, { strokeDasharray: len, strokeDashoffset: len });
-  });
-
-  var lagPerIndex = 0.055;
-
+  /* Match gist: single ScrollTrigger on body, scrub: true, shared dash offset */
   ScrollTrigger.create({
-    trigger: shell,
+    trigger: "body",
     start: "top top",
     end: "bottom bottom",
-    scrub: 0.65,
+    scrub: true,
     onUpdate: function (self) {
-      var progress = self.progress;
-      uses.forEach(function (use, i) {
-        var len = lengths[i];
-        if (!len) return;
-        var lag = i * lagPerIndex;
-        var denom = Math.max(0.001, 1 - lag * 0.65);
-        var t = (progress - lag) / denom;
-        t = t < 0 ? 0 : t > 1 ? 1 : t;
-        gsap.set(use, { strokeDashoffset: len * (1 - t) });
-      });
-      if (riverBg) gsap.set(riverBg, { y: progress * -52 });
-      if (riverSvgOuter)
-        riverSvgOuter.style.setProperty("--about-river-parallax-y", progress * 36 + "px");
+      var thisProgress = self.progress;
+      var tabletVerMovement = 0.65 * window.innerHeight;
+      var scrollProgress = -(2400 * thisProgress);
+      gsap.set("body", { "--strokeDashoffset": scrollProgress });
+      var scrollProgress2 = -Math.floor(tabletVerMovement * thisProgress) + "px";
+      gsap.set("body", { "--tabletVerticaloffset": scrollProgress2 });
     },
   });
+
+  var refreshTimer;
+  window.addEventListener(
+    "resize",
+    function () {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(function () {
+        ScrollTrigger.refresh();
+      }, 120);
+    },
+    { passive: true }
+  );
 
   window.addEventListener(
     "load",
