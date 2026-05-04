@@ -1,7 +1,7 @@
 /**
  * Gist-aligned scroll lines: body --strokeDashoffset + --tabletVerticaloffset
  * https://gist.github.com/LampByLit/47392e5516ccc6b094aef2ee2ef29b66
- * (CodePen https://codepen.io/ikrprojects/pen/KwgGBRp — no SplitText here.)
+ * (CodePen https://codepen.io/ikrprojects/pen/KwgGBRp, no SplitText here.)
  */
 
 (function () {

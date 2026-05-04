@@ -1,5 +1,5 @@
 /**
- * GSAP full-viewport slider — from https://codepen.io/Nidal95/pen/qENQPBp (Nidal95).
+ * GSAP full-viewport slider, from https://codepen.io/Nidal95/pen/qENQPBp (Nidal95).
  * Slides load from GET /api/slide-images.json (all images in public/images). Falls back if the API is missing.
  * Headlines cycle SLIDE_WORDS. Background: random from BRIGHT_BG_COLORS. Optional per slide: `alt` only.
  */
@@ -33,7 +33,7 @@ const debounce = (func, wait, immediate) => {
   };
 };
 
-/** Saturated backdrop colors — each advance picks one at random (not tied to slide index). */
+/** Saturated backdrop colors, each advance picks one at random (not tied to slide index). */
 const BRIGHT_BG_COLORS = [
   "#F87171",
   "#FB923C",
@@ -226,7 +226,7 @@ class Slider {
 
   /**
    * Keeps the full word on one line; scales the line uniformly if it exceeds the column.
-   * Does not change the design font-size clamp — only a transform when needed.
+   * Does not change the design font-size clamp, only a transform when needed.
    */
   fitTitleLine(line) {
     if (!line || !this.titleEl) return;
