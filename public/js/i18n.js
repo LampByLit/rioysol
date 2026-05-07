@@ -31,17 +31,17 @@
       about_kicker: "Riparian stewardship · non-extractive landscape work",
       about_title: "How we protect this stretch of river",
       about_lede:
-        "Rio y Sol works on a priority reach of the Amazon in Iquitos, Peru: water, forest, wildlife, and the people who live with all three. The program is built for the long term: local leadership, steady learning, and field measurements that track real change on the ground.",
+        "Rio y Sol works on a priority reach of the Amazon in Iquitos, Peru: water, forest, wildlife, and the people who live with all three. The program is built for the long term: local leadership, steady learning, and field measurements that track real change.",
 
       about_s1_h2: "1. Problem framing & landscape diagnostics",
       about_s1_p1_html:
-        "Upstream pressures, weak enforcement, informal clearing, trash in the water, and a hotter, less predictable climate all hit this corridor at once. Single-lever projects (a park alone, a village plan alone, cleanups alone) usually stall once the rest of the system pushes back. We use a <strong>ridge-to-reef analog</strong> for freshwater: <strong>catchment-aware</strong>, corridor-wide, explicit about tenure and politics, and framed around the river as a full socio-ecological corridor.",
+        "Upstream pressures, weak enforcement, informal clearing, trash in the water, and a hot, less predictable climate all hit this corridor at once. Single-lever projects like one park, or one burst cleanup can often create small, inconsistent improvements. We use a <strong>ridge-to-reef analog</strong> for freshwater: <strong>catchment-aware</strong>, corridor-wide, explicit about tenure and politics, and framed around the river as a full socio-ecological corridor.",
       about_s1_p2_html:
         "<strong>Landscape diagnostics</strong> combine mapping, threat triage, seasonal hydrology, and field checks. We prioritize places where <strong>keystone habitat patches</strong>, flagship species, and community needs overlap, and we tie every spatial layer to what people observe and report on the ground.",
 
       about_s2_h2: "2. Theory of change & programmatic pillars",
       about_s2_p1_html:
-        "Our <strong>theory of change</strong> is straightforward: lasting gains need <em>stewardship capacity</em>, <em>incentive alignment</em>, and <em>accountable monitoring</em> moving together. Patrols and planting need policy and finance that reward good outcomes; monitoring needs a path from data to action.",
+        "Our <strong>theory of change</strong> is straightforward: lasting gains need <em>stewardship capacity</em>, <em>incentive alignment</em>, and <em>accountable monitoring</em> working together. Patrols and planting need policy and finance that reward good outcomes; monitoring needs a path from data to action.",
       about_s2_p2_html:
         "<strong>Community co-governance pathways</strong> (clear forums, clear roles, rights-holders and stakeholders named) sit next to <strong>nature-based solutions (NbS)</strong> chosen for shade, banks, filtration, and carbon on functional grounds. A practical <strong>MEAL</strong> stack (<strong>monitoring, evaluation, accountability, and learning</strong>) stays light: simple indicators first; deeper tools when they answer a concrete management question.",
 
@@ -53,13 +53,13 @@
 
       about_s4_h2: "4. Pollution abatement & materials stewardship",
       about_s4_p1_html:
-        "Plastic here is a <strong>waste-systems problem with a watershed footprint</strong>: schools and river users, low-tech capture where crews can sustain it, and dialogue with vendors and haulers at chokepoints. Rules on dumping and harmful burning stay clear; outreach respects people’s time and dignity.",
+        "Plastic here is a <strong>waste-systems problem with a watershed footprint</strong>: schools and river users, and dialogue with vendors and haulers at chokepoints.",
       about_s4_p2_html:
         "<strong>Circular-economy pilots</strong> start when supply, labor, and buyers already align. Pilot design stays cautious because under-resourced recycling projects erode trust quickly.",
 
       about_s5_h2: "5. Climate resilience, hydrosocial risk, & equitable adaptation",
       about_s5_p1_html:
-        "Climate information supports planning together with local judgment. We lead with <strong>no-regrets measures</strong>: shade and banks that buffer heat and surge, livelihood options aligned with keeping forest on the landscape. Programs budget for operation and maintenance before scale-up.",
+        "Climate information supports planning together with the local community of Iquitos. We lead with <strong>no-regrets measures</strong>: shade and banks that buffer heat and surge, livelihood options aligned with keeping forest on the landscape. Programs budget for operation and maintenance before scale-up.",
 
       about_s6_h2: "6. Institutional positioning, partnerships, & finance readiness",
       about_s6_p1_html:
